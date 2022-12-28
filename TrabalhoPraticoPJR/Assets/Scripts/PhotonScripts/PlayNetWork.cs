@@ -7,6 +7,7 @@ public class PlayNetWork : MonoBehaviour
 {
     public MonoBehaviour[] scriptsIgnore;
     private PhotonView photonView;
+    public GameObject[] camera;
 
     void Start()
     {
@@ -16,6 +17,12 @@ public class PlayNetWork : MonoBehaviour
             foreach (var script in scriptsIgnore)
             {
                 script.enabled = false;
+               
+            }
+
+            foreach(GameObject obj in camera)
+            {
+                obj.SetActive(false);
             }
         }
     }
