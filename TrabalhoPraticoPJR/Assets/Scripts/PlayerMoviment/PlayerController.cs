@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         inputController = GameObject.Find("InputController").GetComponent<InputController>();
         cameraTransform = GameObject.Find("Main Camera").GetComponent<Transform>();
-        Cursor.visible = false;
+        //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
