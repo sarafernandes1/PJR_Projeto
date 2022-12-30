@@ -4,23 +4,51 @@ using UnityEngine;
 using Photon.Pun;
 
 public class CameraFollow : MonoBehaviour
+{ 
+    [SerializeField]
+    private Transform target;
+
+[SerializeField]
+private Vector3 offsetPosition;
+
+[SerializeField]
+private Space offsetPositionSpace = Space.Self;
+
+[SerializeField]
+private bool lookAt = true;
+
+private void Update()
 {
-    public Transform target;
-    public Vector3 offset;
-    Transform maincamera;
-    public InputController inputController;
+    Refresh();
+}
 
-    void Start()
+public void Refresh()
+{
+    if (target == null)
     {
-        maincamera = GameObject.Find("Main Camera").GetComponent<Transform>();
-        inputController = GameObject.Find("InputController").GetComponent<InputController>();
+        Debug.LogWarning("Missing target ref !", this);
+
+        return;
     }
 
-    // Update is called once per frame
-    void Update()
+    // compute position
+    if (offsetPositionSpace == Space.Self)
     {
-        transform.eulerAngles += 5.0f * new Vector3(-
-        inputController.GetPlayerLook().y, inputController.GetPlayerLook().x, 0);
-
+        transform.position = target.TransformPoint(offsetPosition);
     }
+    else
+    {
+        transform.position = target.position + offsetPosition;
+    }
+
+    // compute rotation
+    if (lookAt)
+    {
+        transform.LookAt(target);
+    }
+    else
+    {
+        transform.rotation = target.rotation;
+    }
+}
 }

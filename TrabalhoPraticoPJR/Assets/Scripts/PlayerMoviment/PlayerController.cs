@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+
      InputController inputController;
     public Transform cameraTransform;
 
@@ -20,7 +21,6 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         inputController = GameObject.Find("InputController").GetComponent<InputController>();
-       // cameraTransform = GameObject.Find("Main Camera").GetComponent<Transform>();
         //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;
     }
@@ -35,14 +35,15 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 camRotation = cameraTransform.eulerAngles;
-        //transform.eulerAngles = new Vector3(transform.eulerAngles.x, camRotation.y, transform.eulerAngles.z);
-       
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, camRotation.y, transform.eulerAngles.z);
+
         Vector2 playerMovement = inputController.GetPlayerMoviment();
         Vector3 move = new Vector3(playerMovement.x, 0, playerMovement.y);
 
         //move.z = w+s; move.x = a+d; forward = para onde estamos a olhar; right = movimento dos lados
         move = transform.forward * move.z + transform.right * move.x;
         move.y = 0f;
+
         move.Normalize(); //para evitar movimento mais rápido na diagonal 
 
         controller.Move(move * Time.deltaTime * playerSpeed);
@@ -57,5 +58,4 @@ public class PlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
 
     }
-
 }
