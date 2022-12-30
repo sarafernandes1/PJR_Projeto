@@ -11,4 +11,5 @@ public class JogoMenu : MonoBehaviourPunCallbacks
 		PhotonNetwork.LeaveRoom();
 		PhotonNetwork.LoadLevel(0);
 	}
+
 }

@@ -18,7 +18,7 @@ public class Maze_Script : MonoBehaviour
     public float wallLength = 1.0f;
     public int xSize = 5;
     public int ySize = 5;
-    private Vector3 initialPos;
+    public Vector3 initialPos;
     private GameObject wallHolder;
     private Cell[] cells;
     public int currentCell = 0;
@@ -31,7 +31,7 @@ public class Maze_Script : MonoBehaviour
     private int wallToBreak = 0;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         CreateWalls();
     }
@@ -40,7 +40,7 @@ public class Maze_Script : MonoBehaviour
     {
         wallHolder = new GameObject();
         wallHolder.name = "Maze";
-        initialPos = new Vector3((-xSize / 2) + wallLength / 2, 0.0f, (-ySize / 2) + wallLength / 2);
+       // initialPos = new Vector3((-xSize / 2) + wallLength / 2, 0.0f, (-ySize / 2) + wallLength / 2);
         Vector3 myPos = initialPos;
         GameObject tempWall;
 
