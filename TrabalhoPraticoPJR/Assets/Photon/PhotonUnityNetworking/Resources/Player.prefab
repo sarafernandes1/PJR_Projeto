@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 7415568965659743765}
   - component: {fileID: 7496232182452415661}
   - component: {fileID: 4933803770307451653}
-  - component: {fileID: 5200742436497683581}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -187,29 +186,6 @@ MonoBehaviour:
   camera:
   - {fileID: 4830611071576589433}
 --- !u!114 &4933803770307451653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3490798811267653073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 1583452180374014374}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &5200742436497683581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class InimigoVida : MonoBehaviour
 {
     int vida = 20;
+    public GameObject chave;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class InimigoVida : MonoBehaviour
 
     void Morte()
     {
+        var obj = Instantiate(chave, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }
