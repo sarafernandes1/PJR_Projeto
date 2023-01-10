@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class InimigoAI : MonoBehaviour
 {
-    GameObject player;
+    Transform player;
 
-    float speed=3.0f;
-    float cooldownataque = 2; 
+    float speed = 1.5f;
+    float cooldownataque = 1.5f;
     float timer_ataque = 0;
     float distanceToPlayer;
     bool atingido, pode_atacar = false;
@@ -16,32 +16,24 @@ public class InimigoAI : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
-
 
     void Update()
     {
-        Vector3 look = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+        Vector3 look = new Vector3(player.position.x, transform.position.y, player.transform.position.z);
         transform.LookAt(look);
 
-        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        Ray inimigo_ray = new Ray(transform.position, transform.TransformDirection(Vector3.forward * 6.0f));
-
-        if (Physics.Raycast(inimigo_ray, 8.0f))
-        {
-            speed = 5.0f;
-        }
-
-        if (distanceToPlayer < 4.0f)
+        if (distanceToPlayer < 0.7f)
         {
             ModoCombate();
-          
+
             if (Time.time > timer_ataque)
             {
                 animator.SetBool("ataque", true);
-                StartCoroutine(espera4());
+                StartCoroutine(ataque());
                 if (pode_atacar)
                 {
                     Ataque();
@@ -54,31 +46,31 @@ public class InimigoAI : MonoBehaviour
             }
         }
 
-        if ((distanceToPlayer <= 25.0f && distanceToPlayer >= 4.0f) || atingido && distanceToPlayer >= 4.0f)
+        if ((distanceToPlayer <= 6.0f && distanceToPlayer >= 0.7f) || atingido && distanceToPlayer >= 0.7f)
         {
-          
             Perseguir();
         }
         else
         {
-            if (distanceToPlayer > 25.0f)
+            if (distanceToPlayer > 6.0f)
             {
                 Normal();
             }
         }
 
     }
-
-  
-    IEnumerator damage()
+    void Normal()
     {
-        yield return new WaitForSeconds(0.5f);
+        ModoNormal();
+        transform.position += transform.forward * 0 * Time.deltaTime;
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 
-    IEnumerator espera4()
+    void Perseguir()
     {
-        yield return new WaitForSeconds(0.5f);
-        pode_atacar = true;
+        speed = 1.5f;
+        ModoPerseguicao();
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 
     void Ataque()
@@ -88,35 +80,36 @@ public class InimigoAI : MonoBehaviour
         timer_ataque = Time.time + cooldownataque;
     }
 
-    void Perseguir()
-    {
-        speed = 3.0f;
-        animator.SetBool("combate", false);
-        animator.SetBool("ataque", false);
-        animator.SetBool("correr", true);
-        animator.SetBool("idle", false);
-        transform.position += transform.forward * speed * Time.deltaTime;
-    }
-
     void ModoCombate()
     {
         animator.SetBool("correr", false);
         animator.SetBool("combate", true);
     }
 
-    void Normal()
+    void ModoPerseguicao()
     {
-        animator.SetBool("idle", true);
-        animator.SetBool("correr", false);
         animator.SetBool("combate", false);
         animator.SetBool("ataque", false);
-        transform.position += transform.forward * 0 * Time.deltaTime;
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        animator.SetBool("correr", true);
+        animator.SetBool("idle", false);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void ModoNormal()
     {
-       
+        animator.SetBool("combate", false);
+        animator.SetBool("ataque", false);
+        animator.SetBool("correr", false);
+        animator.SetBool("idle", true);
+    }
+
+    IEnumerator ataque()
+    {
+        yield return new WaitForSeconds(0.5f);
+        pode_atacar = true;
+    }
+    IEnumerator damage()
+    {
+        yield return new WaitForSeconds(0.5f);
     }
 
 }
