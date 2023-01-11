@@ -11,10 +11,14 @@ public class GerirTempoJogadores : MonoBehaviour
     public float tempoInicial ;
     public bool timerAtivo = false;
     public Text tempoText;
+    GameObject[] players;
+    public Canvas canvasVitoria;
+    public Text nomeJogador;
 
     private void Start()
     {
         timerAtivo = true;
+        players = GameObject.FindGameObjectsWithTag("Player");
     }
     void Update()
     {
@@ -29,6 +33,17 @@ public class GerirTempoJogadores : MonoBehaviour
             {
                 tempoInicial = 0;
                 timerAtivo = false;
+            }
+        }
+
+        foreach(var p in players)
+        {
+            if (p.GetComponent<Chaves>().VitoriaJogador())
+            {
+                canvasVitoria.enabled = true;
+
+                string nickname = PhotonNetwork.LocalPlayer.NickName;
+                nomeJogador.text = nickname;
             }
         }
     }

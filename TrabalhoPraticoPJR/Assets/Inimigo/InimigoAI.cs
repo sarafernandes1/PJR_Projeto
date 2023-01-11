@@ -76,6 +76,7 @@ public class InimigoAI : MonoBehaviour
     void Ataque()
     {
         animator.SetBool("ataque", true);
+        player.GetComponent<JogadorVidas>().TirarVida();
         speed = 0.0f;
         timer_ataque = Time.time + cooldownataque;
     }

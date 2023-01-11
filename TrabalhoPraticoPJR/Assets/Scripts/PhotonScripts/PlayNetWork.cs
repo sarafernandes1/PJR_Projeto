@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class PlayNetWork : MonoBehaviour
 {
     public MonoBehaviour[] scriptsIgnore;
     private PhotonView photonView;
     public GameObject[] camera;
+    public Canvas playerCanvas;
 
     void Start()
     {
@@ -24,6 +26,8 @@ public class PlayNetWork : MonoBehaviour
             {
                 obj.SetActive(false);
             }
+
+            playerCanvas.enabled = false;
         }
     }
 
