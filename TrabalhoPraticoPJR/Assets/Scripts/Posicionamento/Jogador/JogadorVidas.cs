@@ -17,7 +17,6 @@ public class JogadorVidas : MonoBehaviour
         posicionar = GameObject.Find("Posicionar1");
     }
 
-    // Update is called once per frame
     void Update()
     {
         numero_vidas.text = vidas.ToString();

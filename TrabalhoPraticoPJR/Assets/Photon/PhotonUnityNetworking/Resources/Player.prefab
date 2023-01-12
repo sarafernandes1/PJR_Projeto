@@ -419,8 +419,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27af97529d4a2f84f82e4b67efd9e342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numero_chaves1: 0
+  numero_chaves2: 0
   chaves: {fileID: 5886367237447977714}
   text_final: {fileID: 3407906947857108200}
+  text_final1: {fileID: 0}
 --- !u!1 &4830611071576589433
 GameObject:
   m_ObjectHideFlags: 0

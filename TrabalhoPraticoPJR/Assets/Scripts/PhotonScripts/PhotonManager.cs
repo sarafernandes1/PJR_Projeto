@@ -16,6 +16,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 	public GameObject playerListItemPrefab; 
 	public Transform playerListContent; //Transform para colocar o nome dos jogadores
 	public GameObject startGameButton; // Botão para começar jogo
+	public static Player p1, p2;
 
 	void Awake()
 	{
@@ -66,6 +67,9 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 			Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
 		}
 
+
+		if(players.Length>0 )p1 = players[0];
+		if(players.Length>1)p2 = players[1];
 		//Quem for o dono da sala tem o botão de jogar ativo
 		startGameButton.SetActive(PhotonNetwork.IsMasterClient);
 	}

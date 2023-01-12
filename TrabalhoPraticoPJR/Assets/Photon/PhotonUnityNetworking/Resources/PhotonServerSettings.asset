@@ -41,6 +41,8 @@ MonoBehaviour:
   - RespawnSpaceship
   - ChatMessage
   - Vitoria
+  - CanvasFinal
+  - OnTriggerEnter
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
