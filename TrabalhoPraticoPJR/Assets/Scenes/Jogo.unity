@@ -779,6 +779,7 @@ GameObject:
   - component: {fileID: 498730873}
   - component: {fileID: 498730872}
   - component: {fileID: 498730871}
+  - component: {fileID: 498730875}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -857,12 +858,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498730870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -320, y: -240, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -319.6, y: -240, z: 8.6}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 1989600547}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &498730875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498730870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 6f4add30d062b6f4886884f5722a564f, type: 2}
 --- !u!1 &580829146
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,10 +923,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 8953990239080513053, guid: 4f8653e27d057954296a987c230d5360, type: 3}
-  wallLength: 1
-  xSize: 15
-  ySize: 15
-  initialPos: {x: -7, y: 0, z: -7}
+  wallLength: 4
+  xSize: 10
+  ySize: 10
+  initialPos: {x: -17, y: 0, z: -7}
   currentCell: 0
 --- !u!4 &580829148
 Transform:
@@ -1451,6 +1481,7 @@ GameObject:
   - component: {fileID: 1040427038}
   - component: {fileID: 1040427037}
   - component: {fileID: 1040427036}
+  - component: {fileID: 1040427040}
   m_Layer: 0
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -1529,12 +1560,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040427035}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -280, y: -240, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -261, y: -240, z: 8.6}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 1989600547}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1040427040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040427035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 3a49944d6583ea145b1e5a7e30872e0d, type: 2}
 --- !u!1 &1054606495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2432,10 +2492,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 8953990239080513053, guid: 4f8653e27d057954296a987c230d5360, type: 3}
-  wallLength: 1
-  xSize: 15
-  ySize: 15
-  initialPos: {x: 33, y: 0, z: -7}
+  wallLength: 4
+  xSize: 10
+  ySize: 10
+  initialPos: {x: 40, y: 0, z: -7}
   currentCell: 0
 --- !u!4 &1845989200
 Transform:

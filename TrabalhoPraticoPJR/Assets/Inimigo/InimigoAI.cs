@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class InimigoAI : MonoBehaviour
 {
@@ -9,10 +10,11 @@ public class InimigoAI : MonoBehaviour
     float speed = 1.5f;
     float cooldownataque = 1.5f;
     float timer_ataque = 0;
-    float distanceToPlayer;
+    public float distanceToPlayer;
     bool atingido, pode_atacar = false;
 
     public Animator animator;
+    public NavMeshAgent agent;
 
     void Start()
     {
@@ -22,12 +24,14 @@ public class InimigoAI : MonoBehaviour
     void Update()
     {
         Vector3 look = new Vector3(player.position.x, transform.position.y, player.transform.position.z);
-        transform.LookAt(look);
+        //transform.LookAt(look);
 
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToPlayer < 0.7f)
+        if (distanceToPlayer < 2.5f)
         {
+            transform.LookAt(look);
+            agent.Stop();
             ModoCombate();
 
             if (Time.time > timer_ataque)
@@ -46,13 +50,14 @@ public class InimigoAI : MonoBehaviour
             }
         }
 
-        if ((distanceToPlayer <= 6.0f && distanceToPlayer >= 0.7f) || atingido && distanceToPlayer >= 0.7f)
+        if (distanceToPlayer <=12.0f && distanceToPlayer >= 2.5f)
         {
+            agent.Resume();
             Perseguir();
         }
         else
         {
-            if (distanceToPlayer > 6.0f)
+            if (distanceToPlayer > 12.0f)
             {
                 Normal();
             }
@@ -62,6 +67,7 @@ public class InimigoAI : MonoBehaviour
     void Normal()
     {
         ModoNormal();
+        agent.Stop();
         transform.position += transform.forward * 0 * Time.deltaTime;
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
@@ -70,7 +76,9 @@ public class InimigoAI : MonoBehaviour
     {
         speed = 1.5f;
         ModoPerseguicao();
-        transform.position += transform.forward * speed * Time.deltaTime;
+
+        agent.SetDestination(player.transform.position);
+        //transform.position += transform.forward * speed * Time.deltaTime;
     }
 
     void Ataque()

@@ -75,7 +75,7 @@ public class Posicionar : MonoBehaviour
             random = Random.Range(0 + i, posicoes_validas.Count - i);
             i++;
         }
-        int random1 = Random.Range(0, posicoes_validas.Count);
+        int random1 = Random.Range(0+i, posicoes_validas.Count-i);
         if (random1 != random)
         {
             PhotonNetwork.Instantiate("Player", posicoes_validas[random1], Quaternion.Euler(0f, 0f, 0f));
