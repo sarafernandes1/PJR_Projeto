@@ -12,8 +12,9 @@ public class GerirTempoJogadores : MonoBehaviour
     public bool timerAtivo = false;
     public Text tempoText;
     GameObject[] players;
-    public Canvas canvasVitoria;
+    public Canvas canvasVitoria, canvasDerrota;
     public Text nomeJogador;
+    bool vitoriaAlcancada = false;
 
     private void Start()
     {
@@ -36,16 +37,7 @@ public class GerirTempoJogadores : MonoBehaviour
             }
         }
 
-        foreach(var p in players)
-        {
-            if (p.GetComponent<Chaves>().VitoriaJogador())
-            {
-                canvasVitoria.enabled = true;
-
-                string nickname = PhotonNetwork.LocalPlayer.NickName;
-                nomeJogador.text = nickname;
-            }
-        }
+       
     }
     void DisplayTime(float timeToDisplay)
     {
@@ -54,4 +46,5 @@ public class GerirTempoJogadores : MonoBehaviour
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         tempoText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
 }

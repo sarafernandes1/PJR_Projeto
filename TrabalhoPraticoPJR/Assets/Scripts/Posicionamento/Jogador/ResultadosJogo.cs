@@ -13,8 +13,5 @@ public class ResultadosJogo : MonoBehaviour
 
     void Update()
     {
-        //Nome do jogador
-        //Tempo de jogo final
-        //Numero de chaves
     }
 }

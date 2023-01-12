@@ -7,33 +7,25 @@ using Photon.Pun;
 
 public class Chaves : MonoBehaviour
 {
-    int numero_chaves;
-    public Text chaves;
+    public static int numero_chaves;
+    public Text chaves, text_final;
     Canvas vitoria;
     bool vitoria_;
     private PhotonView photonView;
 
-    // Start is called before the first frame update
     void Start()
     {
         photonView = GetComponent<PhotonView>();
         vitoria = GameObject.Find("VitoriaCanvas").GetComponent<Canvas>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         chaves.text = numero_chaves.ToString();
-        if (numero_chaves == 5)
+        if (numero_chaves == 2)
         {
             vitoria_ = true;
-            Time.timeScale = 0.0f;
         }
-    }
-
-    public bool VitoriaJogador()
-    {
-        return vitoria_;
     }
 
     private void OnTriggerEnter(Collider other)

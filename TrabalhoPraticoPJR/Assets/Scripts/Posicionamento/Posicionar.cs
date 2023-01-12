@@ -50,8 +50,8 @@ public class Posicionar : MonoBehaviour
         if (timer == 10 && numero_chaves > 0)
         {
             int random = Random.Range(0, posicoes_validas.Count);
-            var chave = Instantiate(chave_obj, posicoes_validas[random], Quaternion.identity);
-            chave.transform.position = new Vector3(chave.transform.position.x, 0.0f, chave.transform.position.z);
+            Vector3 pos = new Vector3(posicoes_validas[random].x, 0.5f, posicoes_validas[random].z);
+            PhotonNetwork.Instantiate("Chave", pos, Quaternion.identity);
             numero_chaves -= 1;
         }
 
