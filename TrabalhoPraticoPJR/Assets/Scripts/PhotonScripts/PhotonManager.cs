@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
@@ -40,7 +41,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 	{
 		MenuManager.Instance.OpenMenu("menuinicial");
 		Debug.Log("Joined Lobby");
-		PhotonNetwork.NickName = "Player" + Random.Range(1, 10).ToString();
 	}
 
 	// Cria a sala
@@ -50,7 +50,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 		{
 			return;
 		}
-		PhotonNetwork.CreateRoom(roomNameinputField.text);
 		MenuManager.Instance.OpenMenu("loading");
 	}
 
@@ -63,6 +62,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
 		for (int i = 0; i < players.Length; i++)
 		{
+			if(players[i].NickName=="") players[i].NickName= "Player " + Random.Range(0, 10000).ToString("0000");
 			// Permite listar na tela o nome de todos os jogadores na sala
 			Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
 		}
@@ -119,6 +119,12 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 	{
 		startGameButton.SetActive(PhotonNetwork.IsMasterClient);
 	}
+
+	public void ExitGame()
+    {
+		PhotonNetwork.LeaveLobby();
+		Application.Quit();
+    }
 
 	public void StartGame()
 	{

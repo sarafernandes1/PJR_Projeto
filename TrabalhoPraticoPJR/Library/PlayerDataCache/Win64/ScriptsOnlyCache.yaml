@@ -17,10 +17,16 @@ ScriptsOnlyBuild:
     - PlayNetWork
     - PlayerController
     - PlayerListItem
+    - PlayerNameManager
     - Posicionar
     - RoomListItem
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
+    NavMeshComponents.dll:
+    - UnityEngine.AI.NavMeshModifier
+    - UnityEngine.AI.NavMeshSurface
+    NavMeshComponentsEditor.dll:
+    - UnityEditor.AI.NavMeshAssetManager
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -31,6 +37,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -126,51 +134,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1498}
     - Class: 114
-      Script: {instanceID: 1726}
+      Script: {instanceID: 1728}
     - Class: 114
-      Script: {instanceID: 1812}
+      Script: {instanceID: 1814}
     - Class: 114
-      Script: {instanceID: 1842}
+      Script: {instanceID: 1848}
     - Class: 114
-      Script: {instanceID: 2102}
+      Script: {instanceID: 2026}
     - Class: 114
-      Script: {instanceID: 2234}
+      Script: {instanceID: 2112}
     - Class: 114
-      Script: {instanceID: 2448}
+      Script: {instanceID: 2244}
     - Class: 114
-      Script: {instanceID: 2594}
+      Script: {instanceID: 2458}
     - Class: 114
-      Script: {instanceID: 2608}
+      Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 2750}
+      Script: {instanceID: 2618}
     - Class: 114
-      Script: {instanceID: 2936}
+      Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2956}
+      Script: {instanceID: 2948}
     - Class: 114
-      Script: {instanceID: 3068}
+      Script: {instanceID: 2968}
     - Class: 114
-      Script: {instanceID: 3352}
+      Script: {instanceID: 3028}
     - Class: 114
-      Script: {instanceID: 3456}
+      Script: {instanceID: 3082}
     - Class: 114
-      Script: {instanceID: 3754}
+      Script: {instanceID: 3366}
     - Class: 114
-      Script: {instanceID: 3874}
+      Script: {instanceID: 3472}
     - Class: 114
-      Script: {instanceID: 3950}
+      Script: {instanceID: 3770}
     - Class: 114
-      Script: {instanceID: 4076}
+      Script: {instanceID: 3890}
     - Class: 114
-      Script: {instanceID: 4494}
+      Script: {instanceID: 3968}
     - Class: 114
-      Script: {instanceID: 4548}
+      Script: {instanceID: 4096}
     - Class: 114
-      Script: {instanceID: 4640}
+      Script: {instanceID: 4514}
     - Class: 114
-      Script: {instanceID: 4712}
+      Script: {instanceID: 4568}
     - Class: 114
-      Script: {instanceID: 4840}
+      Script: {instanceID: 4660}
+    - Class: 114
+      Script: {instanceID: 4732}
+    - Class: 114
+      Script: {instanceID: 4860}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -185,7 +197,11 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
+    - Class: 195
+      Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 208
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -194,6 +210,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
       Script: {instanceID: 0}
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -249,93 +267,93 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1664}
     - Class: 114
-      Script: {instanceID: 1722}
+      Script: {instanceID: 1724}
     - Class: 114
-      Script: {instanceID: 1726}
+      Script: {instanceID: 1754}
     - Class: 114
-      Script: {instanceID: 1752}
+      Script: {instanceID: 1774}
     - Class: 114
-      Script: {instanceID: 1772}
+      Script: {instanceID: 1816}
     - Class: 114
-      Script: {instanceID: 1814}
+      Script: {instanceID: 1824}
     - Class: 114
-      Script: {instanceID: 1822}
+      Script: {instanceID: 1848}
     - Class: 114
-      Script: {instanceID: 1842}
+      Script: {instanceID: 2102}
     - Class: 114
-      Script: {instanceID: 2092}
+      Script: {instanceID: 2204}
     - Class: 114
-      Script: {instanceID: 2194}
+      Script: {instanceID: 2244}
     - Class: 114
-      Script: {instanceID: 2234}
+      Script: {instanceID: 2252}
     - Class: 114
-      Script: {instanceID: 2242}
+      Script: {instanceID: 2424}
     - Class: 114
-      Script: {instanceID: 2414}
+      Script: {instanceID: 2458}
     - Class: 114
-      Script: {instanceID: 2448}
+      Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 2594}
+      Script: {instanceID: 2618}
     - Class: 114
-      Script: {instanceID: 2608}
+      Script: {instanceID: 2654}
     - Class: 114
-      Script: {instanceID: 2644}
+      Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2750}
+      Script: {instanceID: 2948}
     - Class: 114
-      Script: {instanceID: 2936}
+      Script: {instanceID: 2968}
     - Class: 114
-      Script: {instanceID: 2956}
+      Script: {instanceID: 2978}
     - Class: 114
-      Script: {instanceID: 2966}
+      Script: {instanceID: 3082}
     - Class: 114
-      Script: {instanceID: 3068}
+      Script: {instanceID: 3276}
     - Class: 114
-      Script: {instanceID: 3262}
+      Script: {instanceID: 3366}
     - Class: 114
-      Script: {instanceID: 3352}
+      Script: {instanceID: 3408}
     - Class: 114
-      Script: {instanceID: 3392}
+      Script: {instanceID: 3472}
     - Class: 114
-      Script: {instanceID: 3456}
+      Script: {instanceID: 3508}
     - Class: 114
-      Script: {instanceID: 3492}
+      Script: {instanceID: 3572}
     - Class: 114
-      Script: {instanceID: 3556}
+      Script: {instanceID: 3770}
     - Class: 114
-      Script: {instanceID: 3754}
+      Script: {instanceID: 3882}
     - Class: 114
-      Script: {instanceID: 3866}
+      Script: {instanceID: 3888}
     - Class: 114
-      Script: {instanceID: 3872}
-    - Class: 114
-      Script: {instanceID: 3874}
-    - Class: 114
-      Script: {instanceID: 4056}
+      Script: {instanceID: 3890}
     - Class: 114
       Script: {instanceID: 4076}
     - Class: 114
-      Script: {instanceID: 4104}
+      Script: {instanceID: 4096}
     - Class: 114
-      Script: {instanceID: 4186}
+      Script: {instanceID: 4124}
     - Class: 114
-      Script: {instanceID: 4204}
+      Script: {instanceID: 4206}
     - Class: 114
-      Script: {instanceID: 4304}
+      Script: {instanceID: 4224}
     - Class: 114
-      Script: {instanceID: 4494}
+      Script: {instanceID: 4324}
     - Class: 114
-      Script: {instanceID: 4496}
+      Script: {instanceID: 4514}
     - Class: 114
-      Script: {instanceID: 4548}
+      Script: {instanceID: 4516}
     - Class: 114
-      Script: {instanceID: 4596}
+      Script: {instanceID: 4568}
     - Class: 114
-      Script: {instanceID: 4640}
+      Script: {instanceID: 4616}
     - Class: 114
       Script: {instanceID: 4660}
     - Class: 114
-      Script: {instanceID: 5008}
+      Script: {instanceID: 4680}
+    - Class: 114
+      Script: {instanceID: 5034}
+    - Class: 114
+      Script: {instanceID: 31162}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -349,6 +367,8 @@ ScriptsOnlyBuild:
     - Class: 143
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 195
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
@@ -621,6 +641,12 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: 7299a528424874bcf6b5736b5305ac37
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifierVolume
+  - hash:
+      serializedVersion: 2
       Hash: cbae2ed2d2d53cc8f539e7cb4f29bc1f
     assemblyName: Cinemachine.dll
     namespaceName: 
@@ -697,6 +723,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Procedural
     className: IngameControlPanel
+  - hash:
+      serializedVersion: 2
+      Hash: 8d4458b476a9a4dd8df843a849fcfffa
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshSurface
   - hash:
       serializedVersion: 2
       Hash: 15882a52798c275361cd0a3ada984ec5
@@ -1153,6 +1185,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: CurrentRoomNameProperty
+  - hash:
+      serializedVersion: 2
+      Hash: 2b19be13f00df62e6d4d4f5539bcad51
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifier
   - hash:
       serializedVersion: 2
       Hash: 23066ceca838af0cf02e00e3cf5155c1
@@ -1623,7 +1661,7 @@ ScriptsOnlyBuild:
     className: PlayerAnimatorManager
   - hash:
       serializedVersion: 2
-      Hash: 30f3213a6e218a461fa00e428f22d3eb
+      Hash: 50b70d203451a9ef6cb7e9e5a01dc753
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: InimigoAI
@@ -2241,6 +2279,12 @@ ScriptsOnlyBuild:
     className: ProceduralController
   - hash:
       serializedVersion: 2
+      Hash: c8c672fee8a258266e51b55a210b8083
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshLink
+  - hash:
+      serializedVersion: 2
       Hash: 1bbce36c26e06daa73238c07c42b2bc9
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.PunBasics
@@ -2251,6 +2295,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: UserIdUiForm
+  - hash:
+      serializedVersion: 2
+      Hash: 6270a8887caf0e3b74b88dc112908577
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerNameManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

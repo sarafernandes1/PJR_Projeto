@@ -26,9 +26,9 @@ public class InimigoAI : MonoBehaviour
         Vector3 look = new Vector3(player.position.x, transform.position.y, player.transform.position.z);
         //transform.LookAt(look);
 
-        distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 
-        if (distanceToPlayer < 2.5f)
+        if (distanceToPlayer < 3.0f)
         {
             transform.LookAt(look);
             agent.Stop();
@@ -50,7 +50,7 @@ public class InimigoAI : MonoBehaviour
             }
         }
 
-        if (distanceToPlayer <=12.0f && distanceToPlayer >= 2.5f)
+        if (distanceToPlayer <=12.0f && distanceToPlayer >= 3.0f)
         {
             agent.Resume();
             Perseguir();
@@ -84,7 +84,7 @@ public class InimigoAI : MonoBehaviour
     void Ataque()
     {
         animator.SetBool("ataque", true);
-        player.GetComponent<JogadorVidas>().TirarVida();
+        StartCoroutine(damage());
         speed = 0.0f;
         timer_ataque = Time.time + cooldownataque;
     }
@@ -113,12 +113,13 @@ public class InimigoAI : MonoBehaviour
 
     IEnumerator ataque()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.0f);
         pode_atacar = true;
     }
     IEnumerator damage()
     {
         yield return new WaitForSeconds(0.5f);
+        player.GetComponent<JogadorVidas>().TirarVida();
     }
 
 }
