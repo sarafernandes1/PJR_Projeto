@@ -46,10 +46,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 	// Cria a sala
 	public void CreateRoom()
 	{
-		if (string.IsNullOrEmpty(roomNameinputField.text))
-		{
-			return;
-		}
+        if (string.IsNullOrEmpty(roomNameinputField.text))
+        {
+            return;
+        }
+		PhotonNetwork.CreateRoom(roomNameinputField.text);
 		MenuManager.Instance.OpenMenu("loading");
 	}
 
@@ -68,8 +69,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 		}
 
 
-		if(players.Length>0 )p1 = players[0];
-		if(players.Length>1)p2 = players[1];
+		//if(players.Length>0 )p1 = players[0];
+		//if(players.Length>1)p2 = players[1];
 		//Quem for o dono da sala tem o botão de jogar ativo
 		startGameButton.SetActive(PhotonNetwork.IsMasterClient);
 	}

@@ -11,7 +11,7 @@ public class InimigoAI : MonoBehaviour
     float cooldownataque = 1.5f;
     float timer_ataque = 0;
     public float distanceToPlayer;
-    bool atingido, pode_atacar = false;
+    bool atingido, pode_atacar = false, normal=true, combate=false;
 
     public Animator animator;
     public NavMeshAgent agent;
@@ -24,12 +24,16 @@ public class InimigoAI : MonoBehaviour
     void Update()
     {
         Vector3 look = new Vector3(player.position.x, transform.position.y, player.transform.position.z);
-        //transform.LookAt(look);
-
         distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 
+        if (normal)
+        {
+            Normal();
+        }
+        
         if (distanceToPlayer < 3.0f)
         {
+            normal = false;
             transform.LookAt(look);
             agent.Stop();
             ModoCombate();
@@ -38,9 +42,19 @@ public class InimigoAI : MonoBehaviour
             {
                 animator.SetBool("ataque", true);
                 StartCoroutine(ataque());
-                if (pode_atacar)
+                distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+                if (pode_atacar && distanceToPlayer<4.0f)
                 {
                     Ataque();
+                }
+                else
+                {
+                    pode_atacar = false;
+                    animator.SetBool("ataque", false);
+                    if (distanceToPlayer >= 4.0f)
+                    {
+                        Perseguir();
+                    }
                 }
             }
             else
@@ -53,13 +67,16 @@ public class InimigoAI : MonoBehaviour
         if (distanceToPlayer <=12.0f && distanceToPlayer >= 3.0f)
         {
             agent.Resume();
+            normal = false;
+            combate = false;
             Perseguir();
         }
         else
         {
             if (distanceToPlayer > 12.0f)
             {
-                Normal();
+                normal = true;
+                combate = false;
             }
         }
 
@@ -78,7 +95,6 @@ public class InimigoAI : MonoBehaviour
         ModoPerseguicao();
 
         agent.SetDestination(player.transform.position);
-        //transform.position += transform.forward * speed * Time.deltaTime;
     }
 
     void Ataque()
