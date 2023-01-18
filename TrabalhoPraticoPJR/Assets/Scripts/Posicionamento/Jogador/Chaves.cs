@@ -9,9 +9,15 @@ public class Chaves : MonoBehaviour
 {
     public int numero_chaves1=0, numero_chaves2=0;
     public Text chaves, text_final, text_final1;
-    Canvas vitoria, derrota;
+    Canvas vitoria, derrota, empate;
     string nickname;
     private PhotonView photonView;
+
+    public int NumeroChaves
+    {
+        get { return numero_chaves1; }
+        set { numero_chaves1 = value; }
+    }
 
     void Start()
     {
@@ -21,6 +27,8 @@ public class Chaves : MonoBehaviour
 
         vitoria = GameObject.Find("VitoriaCanvas").GetComponent<Canvas>();
         derrota = GameObject.Find("Derrota").GetComponent<Canvas>();
+        empate = GameObject.Find("Empate").GetComponent<Canvas>();
+
 
         int i = PhotonNetwork.LocalPlayer.ActorNumber;
         nickname =PhotonNetwork.PlayerList[i-1].NickName;
@@ -31,7 +39,7 @@ public class Chaves : MonoBehaviour
         chaves.text = numero_chaves1.ToString();
         
         PhotonView photonView = PhotonView.Get(this);
-        if (numero_chaves1 == 2)
+        if (numero_chaves1 == 5)
         {
             photonView.RPC("CanvasFinal", RpcTarget.All, "", numero_chaves1.ToString());
         }
@@ -39,10 +47,25 @@ public class Chaves : MonoBehaviour
         {
             if (derrota.enabled)
             {
-
                 text_final1.text = nickname;
             }
         }
+
+        if (numero_chaves1 == -1)
+        {
+            empate.enabled = true;
+        }
+
+    }
+
+    public string obterNickname()
+    {
+        return photonView.Owner.NickName;
+    }
+
+    public int ObterNumeroChaves()
+    {
+        return numero_chaves1;
     }
 
     [PunRPC]
@@ -52,7 +75,6 @@ public class Chaves : MonoBehaviour
         {
             vitoria.enabled = true;
             text_final.text = info.Sender.NickName;
-
         }
         else
         {

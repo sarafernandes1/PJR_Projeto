@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,11 +17,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     public float gravityValue = -9.81f;
+    public bool Spawn=false;
+    private NavMeshAgent agent;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         inputController = GameObject.Find("InputController").GetComponent<InputController>();
+        agent = GetComponent<NavMeshAgent>();
         //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;
     }
@@ -57,5 +61,15 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
+        if (Spawn)
+        {
+            GameObject posicionar = GameObject.Find("Posicionar1"); 
+            Vector3 newpos = posicionar.GetComponent<Posicionar>().JogadorSpawn();
+            gameObject.SetActive(false);
+            transform.position = newpos;
+            gameObject.SetActive(true);
+            agent.Warp(newpos);
+            Spawn = false;
+        }
     }
 }

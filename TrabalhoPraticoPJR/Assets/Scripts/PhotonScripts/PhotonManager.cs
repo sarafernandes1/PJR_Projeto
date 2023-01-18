@@ -61,6 +61,12 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
 		Player[] players = PhotonNetwork.PlayerList;
 
+		foreach (Transform child in playerListContent)
+		{
+			Destroy(child.gameObject);
+		}
+
+
 		for (int i = 0; i < players.Length; i++)
 		{
 			if(players[i].NickName=="") players[i].NickName= "Player " + Random.Range(0, 10000).ToString("0000");

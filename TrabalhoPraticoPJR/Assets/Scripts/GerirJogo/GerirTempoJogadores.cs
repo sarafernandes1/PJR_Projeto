@@ -12,8 +12,6 @@ public class GerirTempoJogadores : MonoBehaviour
     public bool timerAtivo = false;
     public Text tempoText;
     GameObject[] players;
-    public Canvas canvasVitoria, canvasDerrota;
-    public Text nomeJogador;
     bool vitoriaAlcancada = false;
 
     private void Start()
@@ -34,6 +32,10 @@ public class GerirTempoJogadores : MonoBehaviour
             {
                 tempoInicial = 0;
                 timerAtivo = false;
+                for (int i = 0; i < players.Length; i++)
+                {
+                    players[i].GetComponent<Chaves>().NumeroChaves = (-1);
+                }
             }
         }
 

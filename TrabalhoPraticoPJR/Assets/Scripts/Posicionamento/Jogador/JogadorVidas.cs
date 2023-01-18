@@ -25,13 +25,6 @@ public class JogadorVidas : MonoBehaviour
     void Update()
     {
         numero_vidas.text = vidas.ToString();
-        if (vidas <= 0)
-        {
-            // transform.position = posicionar.GetComponent<Posicionar>().JogadorSpawn();
-            for (int j = 0; j < vidas_imagem.Length; j++) vidas_imagem[j].enabled = true;
-            vidas = 4;
-            i = 0;
-        }
     }
 
     public void TirarVida()
@@ -39,6 +32,19 @@ public class JogadorVidas : MonoBehaviour
         vidas -= 1;
        if(i<vidas_imagem.Length) vidas_imagem[i].enabled = false;
         i++;
+        if (vidas <= 0)
+        {
+            this.GetComponent<PlayerController>().Spawn = true;
+            Spawn();
+             
+        }
+    }
+
+    public void Spawn()
+    {
+        for (int j = 0; j < vidas_imagem.Length; j++) vidas_imagem[j].enabled = true;
+        vidas = 4;
+        i = 0;
     }
 
 }

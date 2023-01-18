@@ -79,8 +79,7 @@ public class InimigoAI : MonoBehaviour
             }
             else
             {
-                pode_atacar = false;
-                animator.SetBool("ataque", false);
+                StartCoroutine(desativarAtaque());
             }
         }
     }
@@ -99,8 +98,8 @@ public class InimigoAI : MonoBehaviour
 
     void Ataque()
     {
-        StartCoroutine(damage());
-        timer_ataque = Time.time + cooldownataque;
+            StartCoroutine(damage());
+            timer_ataque = Time.time + cooldownataque;
     }
 
     void ModoCombate()
@@ -130,6 +129,14 @@ public class InimigoAI : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         pode_atacar = true;
     }
+
+    IEnumerator desativarAtaque()
+    {
+        yield return new WaitForSeconds(0.5f);
+        pode_atacar = false;
+        animator.SetBool("ataque", false);
+    }
+
     IEnumerator damage()
     {
         yield return new WaitForSeconds(0.5f);

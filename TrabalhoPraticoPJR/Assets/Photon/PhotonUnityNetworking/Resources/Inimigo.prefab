@@ -169,7 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434b12c2221a66f4eaab7a93b517dff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 0
   animator: {fileID: 1309777223934965453}
   agent: {fileID: -8376104925445446229}
 --- !u!114 &8537166601362258976
