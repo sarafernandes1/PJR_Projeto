@@ -10,6 +10,7 @@ public class PlayNetWork : MonoBehaviour
     private PhotonView photonView;
     public GameObject[] camera;
     public Canvas playerCanvas;
+    public Text nickname;
 
     void Start()
     {
@@ -28,6 +29,11 @@ public class PlayNetWork : MonoBehaviour
             }
 
             playerCanvas.enabled = false;
+        }
+        else
+        {
+            int i = PhotonNetwork.LocalPlayer.ActorNumber;
+            nickname.text = PhotonNetwork.PlayerList[i - 1].NickName;
         }
     }
 

@@ -3,7 +3,6 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - CameraFollow
     - Chaves
-    - GerirJogo
     - GerirTempoJogadores
     - InimigoAI
     - InimigoVida
@@ -20,11 +19,14 @@ ScriptsOnlyBuild:
     - PlayerNameManager
     - Posicionar
     - RoomListItem
+    - SimpleCollectibleScript
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
     NavMeshComponents.dll:
     - UnityEngine.AI.NavMeshModifier
     - UnityEngine.AI.NavMeshSurface
+    NavMeshComponentsEditor.dll:
+    - UnityEditor.AI.NavMeshAssetManager
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -113,6 +115,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 90
@@ -168,19 +172,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3892}
     - Class: 114
-      Script: {instanceID: 3970}
-    - Class: 114
       Script: {instanceID: 4098}
     - Class: 114
       Script: {instanceID: 4516}
     - Class: 114
       Script: {instanceID: 4570}
     - Class: 114
-      Script: {instanceID: 4662}
+      Script: {instanceID: 4664}
     - Class: 114
-      Script: {instanceID: 4734}
+      Script: {instanceID: 4736}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4864}
+    - Class: 114
+      Script: {instanceID: 34446}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -239,6 +243,8 @@ ScriptsOnlyBuild:
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -347,11 +353,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4618}
     - Class: 114
-      Script: {instanceID: 4662}
+      Script: {instanceID: 4664}
     - Class: 114
-      Script: {instanceID: 4682}
+      Script: {instanceID: 4684}
     - Class: 114
-      Script: {instanceID: 5036}
+      Script: {instanceID: 5038}
+    - Class: 114
+      Script: {instanceID: 34446}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2043,7 +2051,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: cde129db5a42df4fe887465c64cfe4e6
+      Hash: 5e1392bf0d75ae0886e7ffce03b64e20
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayNetWork
@@ -2086,9 +2094,9 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: PhotonUnityNetworking.Demos.dll
-    namespaceName: Photon.Pun.Demo.Procedural
-    className: Block
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Tempo
   - hash:
       serializedVersion: 2
       Hash: 66a76d307baa3e8eb65d877c961f1b43
@@ -2101,6 +2109,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: LoadLevelUIForm
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: PhotonUnityNetworking.Demos.dll
+    namespaceName: Photon.Pun.Demo.Procedural
+    className: Block
   - hash:
       serializedVersion: 2
       Hash: faef6a31c633fcf32efc3ded7d77eadd
@@ -2301,10 +2315,10 @@ ScriptsOnlyBuild:
     className: UserIdUiForm
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 5efa70e75477466d505df8831a987bd3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Tempo
+    className: SimpleCollectibleScript
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

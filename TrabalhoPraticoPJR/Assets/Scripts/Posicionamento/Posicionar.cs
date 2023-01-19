@@ -50,8 +50,8 @@ public class Posicionar : MonoBehaviour
         if (timer == 10 && numero_chaves > 0)
         {
             int random = Random.Range(0, posicoes_validas.Count);
-            Vector3 pos = new Vector3(posicoes_validas[random].x, 0.5f, posicoes_validas[random].z);
-            PhotonNetwork.Instantiate("Chave", pos, Quaternion.identity);
+            Vector3 pos = new Vector3(posicoes_validas[random].x, 1.5f, posicoes_validas[random].z);
+            PhotonNetwork.Instantiate("Chave", pos, Quaternion.Euler(0f, 0f,-90f));
             numero_chaves -= 1;
         }
 
@@ -69,7 +69,7 @@ public class Posicionar : MonoBehaviour
     {
         int random = Random.Range(0, posicoes_validas.Count);
         int i = 0;
-        while (i < 3)
+        while (i < 4)
         {
             PhotonNetwork.Instantiate("Inimigo", posicoes_validas[random], Quaternion.Euler(0f, 0f, 0f));
             random = Random.Range(0 + i, posicoes_validas.Count - i);

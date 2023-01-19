@@ -32,7 +32,7 @@ public class InimigoAI : MonoBehaviour
         }
 
         //Modo Perseguir
-        if (distanceToPlayer <= 10.0f && distanceToPlayer >= 3.0f)
+        if (distanceToPlayer <= 14.0f && distanceToPlayer >= 3.0f)
         {
             agent.Resume();
             normal = false;
@@ -42,7 +42,7 @@ public class InimigoAI : MonoBehaviour
         else
         {
             //Modo Normal
-            if (distanceToPlayer > 10.0f)
+            if (distanceToPlayer > 14.0f)
             {
                 normal = true;
                 combate = false;
